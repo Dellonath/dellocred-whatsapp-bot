@@ -8,6 +8,7 @@ class FlowActionType(Enum):
     SEND_VIDEO = 'send_video'
     SEND_BUTTON_ACTIONS = 'send_button_actions'
     SEND_CAROUSEL = 'send_carousel'
+    WAIT = 'wait'
     WEBHOOK = 'webhook'
     RANDOM = 'random'
 
@@ -75,6 +76,11 @@ class CarouselAction:
     message: str
     cards: list[CarouselCard]
     type: str = field(default=FlowActionType.SEND_CAROUSEL.value, init=False)
+
+@dataclass
+class WaitAction:
+    seconds: int
+    type: str = field(default=FlowActionType.WAIT.value, init=False)
 
 class Flow:
     def __init__(self, id: int, active: bool, description: str, actions: dict):
@@ -149,6 +155,10 @@ class Flow:
                         action=self.__create_action(choice.get('action'))
                     ) for choice in action.get('choices')
                 ]
+            )
+        if action_type == FlowActionType.WAIT.value:
+            return WaitAction(
+                seconds=action.get('seconds')
             )
         else:
             raise Exception(f"Unknown action type: '{action_type}'")

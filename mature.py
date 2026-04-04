@@ -22,7 +22,7 @@ class Instance:
     block_instances_ids: list[str] = field(default_factory=list)
     sender: list[str] = field(default=True)
 
-DELAY_BETWEEN_INTERACTIONS: int = random.randint(3, 120)
+DELAY_BETWEEN_INTERACTIONS: int = random.randint(30, 60)
 NUMBER_OF_INTERACTIONS: int = 300
 with open(f'configs/instances.json', 'r') as f:
     INSTANCES: list[Instance] = [
@@ -79,6 +79,7 @@ def generate_random_text(chars=string.ascii_lowercase + string.ascii_uppercase +
     return ' '.join(text)
 
 last_sender_id: int = None
+messages_received: list = []
 for _ in range(NUMBER_OF_INTERACTIONS):
 
     sender_instance: Instance = random.choice(
@@ -118,28 +119,49 @@ for _ in range(NUMBER_OF_INTERACTIONS):
 
             print(f'-- sending {action}, waiting for {delay} seconds...')
 
+            message_id: str = None
+            if random.random() <= 0.3:
+                valid_messages: list = [
+                    msg for msg in messages_received 
+                    if msg['phone_sender'] == receiver_instance.phone 
+                    and msg['phone_receiver'] == sender_instance.phone
+                ]
+                if valid_messages:
+                    chosen_message: dict = valid_messages.pop()
+                    message_id: str = chosen_message.get('message_id')
+                    messages_received.remove(chosen_message)
+
             if action == FlowActionType.SEND_MESSAGE:
                 request: dict = w_api.send_message(
                     phone=receiver_instance.phone,
                     message=generate_random_text(),
-                    delay=delay
+                    delay=delay,
+                    message_id=message_id if message_id else None
                 )
 
             elif action == FlowActionType.SEND_AUDIO:
                 request: dict = w_api.send_audio(
                     phone=receiver_instance.phone,
                     audio_url=random.choice(AUDIOS),
-                    delay=delay
+                    delay=delay,
+                    message_id=message_id if message_id else None
                 )
 
             elif action == FlowActionType.SEND_IMAGE:
                 request: dict = w_api.send_image(
                     phone=receiver_instance.phone,
                     image_url=random.choice(IMAGES),
-                    delay=delay
+                    delay=delay,
+                    message_id=message_id if message_id else None
                 )
-            
-            time.sleep(delay+15)
+
+            messages_received.append({
+                'phone_sender': sender_instance.phone,
+                'phone_receiver': receiver_instance.phone,
+                'message_id': request.get('messageId')
+            })
+
+            time.sleep(delay)
 
     time.sleep(DELAY_BETWEEN_INTERACTIONS)
     

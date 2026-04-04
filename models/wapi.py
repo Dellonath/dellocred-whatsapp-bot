@@ -35,12 +35,13 @@ class WAPI:
             'instanceId': self.__instance_id
         }
 
-    def send_message(self, phone: str, message: str, delay: int) -> dict:
+    def send_message(self, phone: str, message: str, delay: int, message_id: str = None) -> dict:
         phone = Phone.format_phone_number(phone)
         payload = {
             'phone': phone,
             'message': message,
-            'delayMessage': delay
+            'delayMessage': delay,
+            'messageId': message_id
         }
 
         response = requests.request(
@@ -55,12 +56,13 @@ class WAPI:
             raise Exception('Error sending audio action:', response.text)
         return response.json()
 
-    def send_audio(self, phone: str, audio_url: str, delay: int) -> dict:
+    def send_audio(self, phone: str, audio_url: str, delay: int, message_id: str = None) -> dict:
         phone = Phone.format_phone_number(phone)
         payload = {
             'phone': phone,
             'audio': audio_url,
-            'delayMessage': delay
+            'delayMessage': delay,
+            'messageId': message_id
         }
 
         response = requests.request(
@@ -75,12 +77,13 @@ class WAPI:
             raise Exception('Error sending audio action:', response.text)
         return response.json()
 
-    def send_image(self, phone: str, image_url: str, delay: int) -> dict:
+    def send_image(self, phone: str, image_url: str, delay: int, message_id: str = None) -> dict:
         phone = Phone.format_phone_number(phone)
         payload = {
             'phone': phone,
             'image': image_url,
-            'delayMessage': delay
+            'delayMessage': delay,
+            'messageId': message_id
         }
 
         response = requests.request(
@@ -95,12 +98,13 @@ class WAPI:
             raise Exception('Error sending image action:', response.text)
         return response.json()
 
-    def send_video(self, phone: str, video_url: str, delay: int) -> dict:
+    def send_video(self, phone: str, video_url: str, delay: int, message_id: str = None) -> dict:
         phone = Phone.format_phone_number(phone)
         payload = {
             'phone': phone,
             'video': video_url,
-            'delayMessage': delay
+            'delayMessage': delay,
+            'messageId': message_id
         }
 
         response = requests.request(

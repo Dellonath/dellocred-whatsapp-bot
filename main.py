@@ -3,7 +3,7 @@
 # python3 main.py --agent 'Douglas Oliveira' --flow_id 7 --category 'Cliente em potencial' --limit 40 --datetime 2025-12-01T06:00:00Z
 
 # python3 main.py --agent 'Aldriely Lima' --flow_name disparo_consignado_siape_bb --category 'Aguardando atendimento' --payroll Siape
-# python3 main.py --agent 'Rosilene Mendes' --flow_name portabilidade_direcionado_rosilene --category 'Aguardando atendimento' --payroll Siape --instances 1,2,3
+# python3 main.py --agent 'Rosilene Mendes' --flow_name portabilidade_direcionado_rosilene --category 'Aguardando atendimento' --payroll Siape --instances 1,2
 
 import os
 import logging
@@ -205,6 +205,9 @@ for client in clients:
                 url=action.endpoint,
                 payload=payload
             )
+        
+        elif action.type == FlowActionType.WAIT.value:
+            time.sleep(action.seconds)
 
     wait_seconds: int = random.randint(30, 300)
     logging.info(f'-- waiting for {wait_seconds} seconds')

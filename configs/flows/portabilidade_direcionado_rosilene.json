@@ -25,10 +25,6 @@
                                         "type": "URL", 
                                         "button_text": "Conhecer nosso instagram",
                                         "url": "https://www.instagram.com/reel/DSCsVy4ETg7/?igsh=MXJ5MjNsZDZrN2dwaw=="
-                                    },
-                                    {
-                                        "type": "REPLAY",
-                                        "button_text": "Cancelar minha inscrição"
                                     }
                                 ]
                             }
@@ -39,10 +35,10 @@
                     "prob": 0.25,
                     "action": {
                         "type": "send_carousel",
-                        "message": "Olá, falo com {{client.first_name}}? Tudo jóia? Espero que sim!\n\nSomos a *Dellocred* e viemos alegrar seu dia ainda mais!",
+                        "message": "Olá, falo com {{client.first_name}}? Tudo jóia? Espero que sim!",
                         "cards": [
                             {
-                                "text": "Notei uma possível linha de crédito liberado para você. Gostaria de receber uma simulação *sem compromisso* e *segura*?\n\nAh, muito cuidado com golpes! *NENHUM* valor será solicitado. Em caso de dúvidas, poderá esclarece-las com nosso atendente.",
+                                "text": "Somos a *Dellocred* e viemos alegrar seu dia ainda mais!\n\nNotei uma possível linha de crédito liberado para você. Gostaria de receber uma simulação *sem compromisso* e *segura*?\n\nAh, muito cuidado com golpes! *NENHUM* valor será solicitado. Em caso de dúvidas, poderá esclarece-las com nosso atendente.",
                                 "image": "https://res.cloudinary.com/dg0nvnjqw/image/upload/v1767203639/portabilidade.png",
                                 "buttons": [
                                     {
@@ -54,10 +50,6 @@
                                         "type": "URL", 
                                         "button_text": "Conhecer nosso instagram",
                                         "url": "https://www.instagram.com/reel/DSCsVy4ETg7/?igsh=MXJ5MjNsZDZrN2dwaw=="
-                                    },
-                                    {
-                                        "type": "REPLAY",
-                                        "button_text": "Cancelar minha inscrição"
                                     }
                                 ]
                             }
@@ -68,10 +60,10 @@
                     "prob": 0.25,
                     "action": {
                         "type": "send_carousel",
-                        "message": "Olá {{client.first_name}}? Como vai? Esperamos que esteja bem!\n\nSomos a *Dellocred* e viemos te trazer uma *ÓTIMA* notícia hoje: há uma possível linha de crédito liberada no seu nome! Sim, isso mesmo!",
+                        "message": "Olá {{client.first_name}}? Como vai? Esperamos que esteja bem!",
                         "cards": [
                             {
-                                "text": "Gostaria de receber uma simulação *sem compromisso* e *segura*?\n\nAh, muito cuidado com golpes! *NENHUM* valor será solicitado. Em caso de dúvidas, poderá esclarece-las com nosso atendente.",
+                                "text": "Somos a *Dellocred* e viemos te trazer uma *ÓTIMA* notícia hoje: há uma possível linha de crédito liberada no seu nome! Sim, isso mesmo!\n\nGostaria de receber uma simulação *sem compromisso* e *segura*?\n\nAh, muito cuidado com golpes! *NENHUM* valor será solicitado. Em caso de dúvidas, poderá esclarece-las com nosso atendente.",
                                 "image": "https://res.cloudinary.com/dg0nvnjqw/image/upload/v1767203639/portabilidade.png",
                                 "buttons": [
                                     {
@@ -83,10 +75,6 @@
                                         "type": "URL", 
                                         "button_text": "Conhecer nosso instagram",
                                         "url": "https://www.instagram.com/reel/DSCsVy4ETg7/?igsh=MXJ5MjNsZDZrN2dwaw=="
-                                    },
-                                    {
-                                        "type": "REPLAY",
-                                        "button_text": "Cancelar minha inscrição"
                                     }
                                 ]
                             }
@@ -97,10 +85,10 @@
                     "prob": 0.25,
                     "action": {
                         "type": "send_carousel",
-                        "message": "Olá {{client.first_name}}? Esperamos que esteja tudo bem contigo!\n\nSomos a *Dellocred* e viemos te trazer uma *EXCELENTE* notícia: há uma possível linha de crédito liberada no seu nome! Sim, isso mesmo!",
+                        "message": "Olá {{client.first_name}}? Esperamos que esteja tudo bem contigo!",
                         "cards": [
                             {
-                                "text": "Gostaria de receber uma simulação *sem compromisso* e *segura*?\n\nAh, muito cuidado com golpes! *NENHUM* valor será solicitado. Em caso de dúvidas, poderá esclarece-las com nosso atendente.",
+                                "text": "Somos a *Dellocred* e viemos te trazer uma *EXCELENTE* notícia: há uma possível linha de crédito liberada no seu nome! Sim, isso mesmo!\n\nGostaria de receber uma simulação *sem compromisso* e *segura*?\n\nAh, muito cuidado com golpes! *NENHUM* valor será solicitado. Em caso de dúvidas, poderá esclarece-las com nosso atendente.",
                                 "image": "https://res.cloudinary.com/dg0nvnjqw/image/upload/v1767203639/portabilidade.png",
                                 "buttons": [
                                     {
@@ -112,15 +100,25 @@
                                         "type": "URL", 
                                         "button_text": "Conhecer nosso instagram",
                                         "url": "https://www.instagram.com/reel/DSCsVy4ETg7/?igsh=MXJ5MjNsZDZrN2dwaw=="
-                                    },
-                                    {
-                                        "type": "REPLAY",
-                                        "button_text": "Cancelar minha inscrição"
                                     }
                                 ]
                             }
                         ]
                     }
+                }
+            ]
+        },
+        {
+            "type": "wait",
+            "seconds": 5
+        },
+        {
+            "type": "send_button_actions",
+            "message": "Caso não deseje receber mensagens, basta clicar no botão abaixo.",
+            "buttons": [
+                {
+                    "type": "REPLAY",
+                    "button_text": "Cancelar inscrição"
                 }
             ]
         },

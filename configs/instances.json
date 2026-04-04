@@ -1,8 +1,8 @@
 [
     {
         "id": 1,
-        "active": true,
-        "mature": true,
+        "active": false,
+        "mature": false,
         "name": "Chip 1 Pro",
         "phone": "+553597693994",
         "instance_id": "WAPI_INSTANCE_ID_CHIP1",
@@ -11,10 +11,9 @@
     {
         "id": 2,
         "active": true,
-        "mature": false,
-        "sender": false,
+        "mature": true,
         "name": "Chip 2 Pro",
-        "phone": "+5535997082862",
+        "phone": "+553591683067",
         "instance_id": "WAPI_INSTANCE_ID_CHIP2",
         "instance_token": "WAPI_INSTANCE_TOKEN_CHIP2"
         
@@ -24,7 +23,7 @@
         "active": true,
         "mature": true,
         "name": "Chip 3 Pro",
-        "phone": "+553591683067",
+        "phone": "+553597082862",
         "instance_id": "WAPI_INSTANCE_ID_CHIP3",
         "instance_token": "WAPI_INSTANCE_TOKEN_CHIP3" 
     },
@@ -69,5 +68,14 @@
         "phone": "+553599877509",
         "instance_id": "WAPI_INSTANCE_ID_CHIP4",
         "instance_token": "WAPI_INSTANCE_TOKEN_CHIP4" 
+    },
+    {
+        "id": 8,
+        "active": false,
+        "mature": true,
+        "name": "Kelly Aguiar Business Lite",
+        "phone": "+553591408935",
+        "instance_id": "WAPI_INSTANCE_ID_KELLYAGUIAR",
+        "instance_token": "WAPI_INSTANCE_TOKEN_KELLYAGUIAR" 
     }
 ]
